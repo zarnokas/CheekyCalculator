@@ -64,6 +64,7 @@ namespace MajaTest
 
                 if (hour == 18 && minute <= 29) return minFee;
             }
+
             //if the day is free return 0
             return noFee;
         }

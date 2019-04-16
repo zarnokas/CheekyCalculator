@@ -18,6 +18,10 @@ namespace MajaTest
             {
                 ApplyFee(time, vehicle);
             }
+            else
+            {
+                Console.WriteLine($"{vehicle.VehicleType} is toll free!!!");
+            }
         }
 
 
@@ -40,12 +44,12 @@ namespace MajaTest
                     vehicle.LastFeeChargeAmount = feeCharge;
 
                     //In case you want to get some feedback
-                    //Console.WriteLine($"{date}: Updated {vehicle.VehicleType} {vehicle.VehicleID} with new charging fee of {feeCharge}");
+                    Console.WriteLine($"{date}: Updated {vehicle.VehicleType} {vehicle.VehicleID} with new charging fee of {feeCharge}");
                 }
                 else
                 {
                     //In case you want to get some feedback
-                    //Console.WriteLine($"{date}: No additional charge for {vehicle.VehicleType} {vehicle.VehicleID}. Time diff {timeDiff} between {date} and {vehicle.LastFeeChargeTime}");
+                    Console.WriteLine($"{date}: No additional charge for {vehicle.VehicleType} {vehicle.VehicleID}. Time diff {timeDiff} between {date} and {vehicle.LastFeeChargeTime}");
                 }
             }
             else
@@ -62,7 +66,7 @@ namespace MajaTest
                 }
 
                 //In case you want to get some feedback
-                //Console.WriteLine($"{date}: Charged  {vehicle.VehicleType} {vehicle.VehicleID} with a fee of {vehicle.LastFeeChargeAmount}");
+                Console.WriteLine($"{date}: Charged  {vehicle.VehicleType} {vehicle.VehicleID} with a fee of {vehicle.LastFeeChargeAmount}");
             }
         }
 
