@@ -43,6 +43,7 @@ namespace MajaTest
 
                 //Check what fee is applicable for the specified time
                 //start with longest time span to potentially skip additional if-checks
+                //Could probably be changed to a switch statement for better efficiency!
                 if ((hour == 18 && minute >= 30) || hour >= 19 || hour <= 5) return NoFee;
 
                 //second longest time span in case we can avoid unecessary if-checks

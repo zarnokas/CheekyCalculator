@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 
 namespace MajaTest
 {
@@ -27,7 +26,7 @@ namespace MajaTest
             }
         }
 
-        public void ApplyFee(DateTime date, IVehicle vehicle)
+        private void ApplyFee(DateTime date, IVehicle vehicle)
         {
             var timeDiff = date - vehicle.LastFeeChargeTime;
 

@@ -36,17 +36,18 @@ namespace MajaTest
                 tolls.ChargeTollFee(simulationTime, Vehicles[randomGenerator.Next(Vehicles.Count)]);
                 //decrement simulation counter
                 simulationIterations--;
+                //take a short nap if we want to!
                 if (slowDown)
                 {
                     Thread.Sleep(delay);
-
                 }
             }
         }
 
         public static DateTime GenerateRandomDate(DateTime startDate)
         {
-            DateTime randomTime = new DateTime(startDate.Year, 
+            //generate new date based on previous one. Increments up to 2h at a time!
+            DateTime randomTime = new DateTime( startDate.Year, 
                                                 startDate.Month,
                                                 startDate.Day, 
                                                 startDate.AddHours(randomGenerator.Next(2)).Hour, 
