@@ -33,6 +33,6 @@ namespace MajaTest
         Motorbike = 2,
         Emergency = 3,
         Military = 4,
-        Truck
+        Truck = 5
     }
 }

@@ -7,16 +7,16 @@ namespace MajaTest
     public static class TollFee
     {
         private static readonly List<KeyValuePair<int, int>> DateList = new List<KeyValuePair<int, int>>();
-        private static int minFee, maxFee, medFee, noFee;
+        private static readonly int MinFee, MaxFee, MedFee, NoFee;
 
         //Should be private since we dont want anyone changing our dates! Also it's static so it shouldn't even be initialised more than once.
         static TollFee()
         {
             //Define toll fee amount in one convenient place
-            noFee = 0;
-            minFee = 9;
-            medFee = 16;
-            maxFee = 22;
+            NoFee = 0;
+            MinFee = 9;
+            MedFee = 16;
+            MaxFee = 22;
 
             //Add exempt dates
             DateList.Add(new KeyValuePair<int, int>(1, 2));
@@ -43,30 +43,30 @@ namespace MajaTest
 
                 //Check what fee is applicable for the specified time
                 //start with longest time span to potentially skip additional if-checks
-                if ((hour == 18 && minute >= 30) || hour >= 19 || hour <= 5) return noFee;
+                if ((hour == 18 && minute >= 30) || hour >= 19 || hour <= 5) return NoFee;
 
                 //second longest time span in case we can avoid unecessary if-checks
-                if ((hour == 8 && minute >= 30) || (hour >= 9 && hour <= 14)) return minFee;
+                if ((hour == 8 && minute >= 30) || (hour >= 9 && hour <= 14)) return MinFee;
 
-                if (hour == 6 && minute <= 29) return minFee;
+                if (hour == 6 && minute <= 29) return MinFee;
 
-                if (hour == 6 && minute >= 30) return medFee;
+                if (hour == 6 && minute >= 30) return MedFee;
 
-                if (hour == 7) return maxFee;
+                if (hour == 7) return MaxFee;
 
-                if (hour == 8 && minute <= 29) return medFee;
+                if (hour == 8 && minute <= 29) return MedFee;
 
-                if (hour == 15 && minute <= 29) return medFee;
+                if (hour == 15 && minute <= 29) return MedFee;
 
-                if ((hour == 15 && minute >= 30) || hour == 16) return maxFee;
+                if ((hour == 15 && minute >= 30) || hour == 16) return MaxFee;
 
-                if (hour == 17) return medFee;
+                if (hour == 17) return MedFee;
 
-                if (hour == 18 && minute <= 29) return minFee;
+                if (hour == 18 && minute <= 29) return MinFee;
             }
 
             //if the day is free return 0
-            return noFee;
+            return NoFee;
         }
     }
 }

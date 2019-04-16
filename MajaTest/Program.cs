@@ -22,7 +22,7 @@ namespace MajaTest
             RunSimulation(100, true);
         }
 
-        public static void RunSimulation(int simulationIterations, bool slowDown)
+        public static void RunSimulation(int simulationIterations, bool slowDown = false, int delay = 100)
         {
             //initialise our Toll Fee Calculator
             var tolls = new TollFeeCalculator();
@@ -38,7 +38,7 @@ namespace MajaTest
                 simulationIterations--;
                 if (slowDown)
                 {
-                    Thread.Sleep(250);
+                    Thread.Sleep(delay);
 
                 }
             }
@@ -53,6 +53,7 @@ namespace MajaTest
                                                 startDate.AddMinutes(randomGenerator.Next(60)).Minute, 
                                                 startDate.AddSeconds(randomGenerator.Next(60)).Second);
 
+            //since we don't want to end up in a same day loop increment to the next day when applicable
             if (startDate > randomTime)
             {
                 return randomTime.AddDays(1);
